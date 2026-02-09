@@ -15,4 +15,6 @@ export interface Question {
   options: Option[];
   correctOptionId: string;
   category: string;
+  section: string;
+  topic: string;
 }

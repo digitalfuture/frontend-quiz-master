@@ -89,7 +89,10 @@ const getLocalizedText = (textObj: { en: string, ru: string }) => {
       <!-- Question Screen -->
       <div v-else-if="currentQuestion" class="glass-card question-card">
         <div class="quiz-header">
-          <span class="category-badge">{{ currentQuestion.category }}</span>
+          <div class="section-info">
+            <span class="section-title">{{ currentQuestion.section }}</span>
+            <span class="topic-badge">{{ currentQuestion.topic }}</span>
+          </div>
           <span class="progress-info">{{ t('progress', { current: currentQuestionIndex + 1, total: questions.length }) }}</span>
         </div>
 
@@ -194,19 +197,37 @@ const getLocalizedText = (textObj: { en: string, ru: string }) => {
   margin-bottom: 2rem;
 }
 
-.category-badge {
+.section-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.topic-badge {
   background: var(--option-bg);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   border: 1px solid var(--border-color);
+  width: fit-content;
 }
 
 .progress-info {
   font-size: 0.9rem;
   color: var(--text-muted);
+  font-weight: 600;
+  align-self: flex-start;
+  padding-top: 0.25rem;
 }
 
 .question-text {
