@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-family: 'Outfit', sans-serif;
+  
+  // Transitions
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Light Theme Tokens
+  &.light {
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --primary-color: #0ea5e9;
+    --primary-hover: #0284c7;
+    --secondary-color: #6366f1;
+    --text-color: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --option-bg: #f1f5f9;
+    --option-hover: #e2e8f0;
+    --correct-bg: #dcfce7;
+    --correct-text: #166534;
+    --incorrect-bg: #fee2e2;
+    --incorrect-text: #991b1b;
+  }
+
+  // Dark Theme Tokens
+  &.dark {
+    --bg-color: #1e293b; // Slightly lighter navy
+    --surface-color: #334155; // Lighter surface
+    --primary-color: #38bdf8;
+    --primary-hover: #7dd3fc;
+    --secondary-color: #818cf8;
+    --text-color: #ffffff; // Maximize contrast
+    --text-muted: #cbd5e1; // Brighter muted text
+    --border-color: #475569;
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    --option-bg: #475569;
+    --option-hover: #64748b;
+    --correct-bg: #065f46;
+    --correct-text: #a7f3d0;
+    --incorrect-bg: #991b1b;
+    --incorrect-text: #fecaca;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1.125rem; // Increased from default (18px approx)
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem 2rem; // Increased padding
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      filter: brightness(1.1);
+    }
+    
+    &:disabled {
+      filter: grayscale(1);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn-outline {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    
+    &:hover {
+      background: var(--option-bg);
+      border-color: var(--text-muted);
+    }
+  }
+
+  &.btn-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    
+    &:hover {
+      background: var(--option-hover);
+    }
+  }
+}
+
+.glass-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
+}
+
+// Animations
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-normal);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all var(--transition-normal);
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
