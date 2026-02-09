@@ -29,17 +29,18 @@
 
   // Dark Theme Tokens
   &.dark {
-    --bg-color: #1e293b; // Slightly lighter navy
-    --surface-color: #334155; // Lighter surface
+    --bg-color: #0f172a; // Deep midnight navy
+    --surface-color: #1e293b; // Slate 800
     --primary-color: #38bdf8;
     --primary-hover: #7dd3fc;
     --secondary-color: #818cf8;
-    --text-color: #ffffff; // Maximize contrast
-    --text-muted: #cbd5e1; // Brighter muted text
-    --border-color: #475569;
-    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-    --option-bg: #475569;
-    --option-hover: #64748b;
+    --text-color: #f1f5f9; // Slate 100
+    --text-muted: #94a3b8; // Slate 400
+    --border-color: #334155; // Slate 700
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    --option-bg: #475569; // Slate 600 (Lighter than surface)
+    --option-hover: #64748b; // Slate 500
+    --option-text: #ffffff;
     --correct-bg: #065f46;
     --correct-text: #a7f3d0;
     --incorrect-bg: #991b1b;

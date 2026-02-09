@@ -233,6 +233,7 @@ const getLocalizedText = (textObj: { en: string, ru: string }) => {
   width: 100%;
   transition: all var(--transition-fast);
   gap: 1rem;
+  color: var(--option-text, var(--text-color));
 
   &:hover:not(.disabled) {
     background: var(--option-hover);
@@ -276,8 +277,8 @@ const getLocalizedText = (textObj: { en: string, ru: string }) => {
 
 .option-text {
   flex: 1;
-  font-weight: 500;
-  font-size: 1.2rem; // Added explicit font size
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .quiz-footer {
